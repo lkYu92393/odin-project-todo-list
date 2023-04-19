@@ -12,31 +12,36 @@ const hideAddProjectWindow = () => {
 
 const addProject = () => {
     const projectNameElem = document.getElementById("project-name");
-    projects.push(todoFactory(projectNameElem.value));
-    projectNameElem.value = "";
-
-    hideAddProjectWindow();
-    renderProjects();
+    if (!!projectNameElem.value) {
+        projects.push(todoFactory(projectNameElem.value));
+        projectNameElem.value = "";
+    
+        hideAddProjectWindow();
+        renderProjects();
+    } else {
+        alert("Project name can't be empty.");
+    }
 }
 
 const renderProjects = () => {
     const projectSectionElem = document.querySelector("div#project-section>div.container-md");
     const convertTodoToListElem = (todo) => {
         if (todo.length == 0) {
-            return "";
+            return "-";
         } else {
-            return "<ul>"
-                 + todo.map(obj => `<li>${obj}</li>`)
-                 + "</ul>";
+            return todo.map(obj => `<li>${obj}</li>`).join("");
         }
     }
     projectSectionElem.innerHTML = (projects.map(project => {
         return `<div>
-        <div>${project.name}</div>` +
+        <div><h4>${project.name}</h4></div>` +
+        "<div>Todo List:<br/><ul></ul>" +
         convertTodoToListElem(project.todo)
+        + "</ul></div>"
         + `<button id="${project.name}">Add Todo</button>`
         + `</div>`
     })).join("");
+
 }
 
 const initToolbarUI = () => {
