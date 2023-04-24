@@ -1,4 +1,4 @@
-import todoFactory from "./todo.js";
+import todoFactory from "./factory/todo.js";
 
 const projects = [];
 
@@ -25,23 +25,35 @@ const addProject = () => {
 
 const renderProjects = () => {
     const projectSectionElem = document.querySelector("div#project-section>div.container-md");
-    const convertTodoToListElem = (todo) => {
+    const convertTodoToListElem = (name, todo) => {
         if (todo.length == 0) {
             return "-";
         } else {
-            return todo.map(obj => `<li>${obj}</li>`).join("");
+            return todo.map((obj, index) => `<li>${obj}<button name="${name}" value="${index}">Remove</button></li>`).join("");
         }
     }
     projectSectionElem.innerHTML = (projects.map(project => {
         return `<div>
         <div><h4>${project.name}</h4></div>` +
         "<div>Todo List:<br/><ul></ul>" +
-        convertTodoToListElem(project.todo)
+        convertTodoToListElem(project.name, project.todo)
         + "</ul></div>"
-        + `<button id="${project.name}">Add Todo</button>`
+        + `<button class="big" id="${project.name}">Add Todo</button>`
         + `</div>`
     })).join("");
-
+    projects.forEach(project => {
+        document.getElementById(project.name).addEventListener("click", (ev) => {
+            let todo = prompt("Please enter the todo thing.");
+            projects.find(project => project.name == ev.target.id).addTodo(todo);
+            renderProjects();
+        })
+    });
+    Array.from(document.querySelectorAll("li button"))
+        .forEach(elem => elem.addEventListener("click", (ev) => {
+            projects.find(project => project.name == ev.target.name).removeTodoByIndex(parseInt(ev.target.value));
+            renderProjects();
+        })
+    )
 }
 
 const initToolbarUI = () => {

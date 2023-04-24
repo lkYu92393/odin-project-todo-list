@@ -6,7 +6,10 @@ const todoFactory = (name) => {
     const removeTodo = (todoName) => {
         todo.splice(todo.indexOf(todo.find(obj => obj == todoName)), 1);
     }
-    return { name, todo, addTodo, removeTodo };
+    const removeTodoByIndex = (toindexdoName) => {
+        todo.splice(toindexdoName, 1);
+    }
+    return { name, todo, addTodo, removeTodo, removeTodoByIndex };
 }
 
 export default todoFactory;
