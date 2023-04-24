@@ -1,0 +1,102 @@
+/* Init */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body { font-family: Arial, sans-serif; }
+.hidden { display: none; }
+div.container-md {
+    max-width: 1000px;
+    margin: auto;
+}
+button.big {
+    border: none;
+    border-radius: 5px;
+    background-color: #58e;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+li {
+    margin: 0 0 0 20px;
+}
+
+div#content {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display:flex;
+    flex-direction: column;
+}
+
+/* Content */
+
+div#content>header {
+    height: 200px;
+    padding: 0 20px;
+}
+
+div#content>header>div {
+    padding: 20px 0 0 ;
+}
+
+div#content>header>div>h1 {
+    padding: 20px 0;
+}
+
+div#content>div.toolbar { 
+    height: 50px;
+    border-bottom: 3px solid rgba(0,0,0,0.4);
+    box-shadow: 0px 5px 5px 0 rgba(0,0,0,0.3);
+    padding: 0 20px;
+}
+
+div#content>div#project-section {
+    min-height: calc(100vh - 250px);
+    padding: 0 20px;
+}
+
+div#content>div#project-section>div {
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 25px;
+}
+
+div#content>div#project-section>div>div {
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+/* OVERLAY */
+
+div#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100vh;
+}
+
+div#overlay>div {
+    background-color: white;
+    border-radius: 20px;
+    margin: 200px auto;
+    padding: 40px;
+    width: 440px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30px 30px 1fr;
+    gap: 10px 10px;
+}
+
+div#overlay>div>h1, div#overlay>div>input {
+    grid-column: 1 / span 2;
+}
