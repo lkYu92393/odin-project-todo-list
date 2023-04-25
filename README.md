@@ -10,7 +10,7 @@ This project uses webpack to create a todo list website. It has the following fu
 - Create a project
 - Add todo to the project
 - Remove todo from the project
-- Remove the project (not implemented yet)
+- Remove the project
 - Last through refresh (not implemented yet)
 
 ## How to reproduce on local
