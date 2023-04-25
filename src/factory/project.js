@@ -1,4 +1,4 @@
-const todoFactory = (name) => {
+const projectFactory = (name) => {
     const todo = [];
     const addTodo = (todoName) => {
         todo.push(todoName);
@@ -12,4 +12,4 @@ const todoFactory = (name) => {
     return { name, todo, addTodo, removeTodo, removeTodoByIndex };
 }
 
-export default todoFactory;
+export default projectFactory;
