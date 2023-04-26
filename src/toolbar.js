@@ -61,13 +61,6 @@ const renderProjects = () => {
     Array.from(document.querySelectorAll("button.btnRemove")).forEach(elem => {
         elem.addEventListener("click", removeProjectHandler);
     })
-    // projects.projectsArray.forEach(project => {
-    //     document.querySelectorAll(project.name).addEventListener("click", (ev) => {
-    //         let todo = prompt("Please enter the todo thing.");
-    //         projects.projectsArray.find(project => project.name == ev.target.name).addTodo(todo);
-    //         renderProjects();
-    //     })
-    // });
     Array.from(document.querySelectorAll("li button"))
         .forEach(elem => elem.addEventListener("click", (ev) => {
             projects.projectsArray.find(project => project.name == ev.target.name).removeTodoByIndex(parseInt(ev.target.value));
@@ -80,6 +73,7 @@ const initToolbarUI = () => {
     document.getElementById("btnAddProject").addEventListener("click", showAddProjectWindow);
     document.getElementById("btnCancel").addEventListener("click", hideAddProjectWindow);
     document.getElementById("btnConfirm").addEventListener("click", addProject);
+    renderProjects();
 }
 
 export { initToolbarUI };
