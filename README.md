@@ -11,7 +11,7 @@ This project uses webpack to create a todo list website. It has the following fu
 - Add todo to the project
 - Remove todo from the project
 - Remove the project
-- Last through refresh (not implemented yet)
+- Last through refresh (implemented with localstorage)
 
 ## How to reproduce on local
 
