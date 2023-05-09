@@ -70,8 +70,19 @@ div#content>div#project-section>div {
 div#content>div#project-section>div>div {
     padding: 10px;
     border-radius: 10px;
-    display: block;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 3px;
+}
+
+div#content>div#project-section>div>div>div:nth-child(4n + 1) {
+    grid-column: 1 / span 2;
+    font-size: 1.5rem;
+}
+
+div#content>div#project-section>div>div>div:nth-child(4n + 2) {
+    grid-column: 1 / span 2;
 }
 
 /* OVERLAY */
